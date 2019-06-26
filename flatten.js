@@ -36,13 +36,14 @@ const flatten = function (arr) {
   for (let i = 0; i < arr.length; i++) {
     //need to test if element is an array- we will use a loop
     // first case it is not an array
-    if (!arr[i].isArray) {
+    if (!Array.isArray(arr[i])) {
+      // push the non array element into our return array
+      returnArr.push(arr[i]);
 
-     returnArr = returnArr.push(arr[i]);
-
-    } else if (arr[i].isArray) {
+      // this confirms that the element in arr is an array and then access the elements of the nested array and pushes them to returnArr
+    } else if (Array.isArray(arr[i])) {
     for (let j = 0; j < arr[i].length; j++) {
-      returnArr = returnArr.push(arr[i][j]);
+      returnArr.push(arr[i][j]); 
     }
   }
   
