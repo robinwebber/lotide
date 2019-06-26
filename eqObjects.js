@@ -38,11 +38,9 @@ const eqObjects = function(object1, object2) {
   let firstObKeys = Object.keys(object1);
   let secondObKeys = Object.keys(object2);
 
-  if (firstObKeys.length === secondObKeys.length) {
-    numOfKeysTest = true;
-  } else {
-    numOfKeysTest = false;
-  }
+  numOfKeysTest = firstObKeys.length === secondObKeys.length;
+
+
   //console.log('judgement of numofkeys test ' + numOfKeysTest);
   //return numOfKeysTest;
 
@@ -53,20 +51,14 @@ const eqObjects = function(object1, object2) {
     } else {
       valueOfKeysTest = object1[i] !== object2[i];
     }
-
-    // if (object1[i] !== object2[i]) {
-    //   valueOfKeysTest = false;
-    // } else if (Array.isArray(object1[i]) ) {
-    //   valueOfKeysTest = eqArrays(object1[i], object2[i]);
-    // }
   };
-  // console.log('judgement of valueofkeystest ' + valueOfKeysTest);
+  
 
 
   
 
   
-  console.log(numOfKeysTest && valueOfKeysTest);
+  // console.log(numOfKeysTest && valueOfKeysTest);
   return (numOfKeysTest && valueOfKeysTest);
 };
 
