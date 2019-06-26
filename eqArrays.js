@@ -19,10 +19,12 @@ const eqArrays = function (firstArray, secondArray) {
       if (firstArray[i] !== secondArray[i]) {
         result = false;
       }
-    } return result;
+    } 
 
   }
-}
+
+  return result;
+};
 
 
 assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); 
