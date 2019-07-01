@@ -1,10 +1,10 @@
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅ Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`❌ Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
+// const assertEqual = function(actual, expected) {
+//   if (actual === expected) {
+//     console.log(`✅ Assertion Passed: ${actual} === ${expected}`);
+//   } else {
+//     console.log(`❌ Assertion Failed: ${actual} !== ${expected}`);
+//   }
+// };
 
 const letterInstancesCounter = function (string, character) {
   let letterCount = 0;
@@ -44,9 +44,10 @@ const countLetters = function (str) {
   return letterCountObject;
 }
 
+module.exports = countLetters;
 //console.log(countLetters("lighthouse in the house"));
 
-let testResult = countLetters('lighthouse in the house');
+// let testResult = countLetters('lighthouse in the house');
 
-assertEqual(testResult['l'], 1);
-assertEqual(testResult['h'], 4);
+// assertEqual(testResult['l'], 1);
+// assertEqual(testResult['h'], 4);

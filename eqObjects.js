@@ -1,80 +1,40 @@
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅ Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`❌ Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
 
-const eqArrays = function (firstArray, secondArray) {
-  // first compare the lengths of the two arrays if not equal return false
-  let result = true;
-  if (firstArray.length !== secondArray.length) {
-    result = false;
-  } else {
-    // compare elements of the arrays with a loop
-    for (let i = 0; i < firstArray.length; i++) {
-      // if array1[i] === array2[i] then continue
-      if (firstArray[i] !== secondArray[i]) {
-        result = false;
+// below code was built with reference to https://gomakethings.com/check-if-two-arrays-or-objects-are-equal-with-javascript/
+
+// Implement the defintion for function eqObjects which will take in two objects and returns true or false,
+  //based on a perfect match.
+
+// This time I will take a difference approach, using return false; or return true; so that the value of the function is boolean
+const eqObjects = function(object1, object2) {
+  
+  // They have the same number of keys
+  let length1 = Object.keys(object1).length;
+  //console.log('length1 ===> ', length1);
+
+  if (length1 !== Object.keys(object2).length) {
+    //console.log('first test tripped ==> ', (length1 !== Object.keys(object2).length));
+    return false;
+  };
+
+  for (let keys in object1) {
+    if (Array.isArray(object1[keys])) {
+      if (!Array.isArray(object2[keys])) {
+        return false;
       }
+      if (!eqArrays(object1[keys], object2[keys])) {
+        console.log('line 51');
+        return false;
+      }
+      // console.log(eqArrays(object1[keys], object2[keys])); 
+      // console.log('has this tripped?');
+      
+    } else if (object1[keys] !== object2[keys]) {
+      console.log('line 58');
+      return false;
     } 
 
-  }
-  return result;
-};
- 
-//create a function that compares two objects
-const eqObjects = function(object1, object2) {
-
-  // returns true if the objects have identical keys with identical values
-  // return false if otherwise
-  // need a variable to hold ultimate answer
-  let numOfKeysTest = undefined;
-  //console.log('initial value of numofkeys test ' + numOfKeysTest);
-  let valueOfKeysTest = true;
-  //console.log('initial value of valueofkeystest ' + valueOfKeysTest);
-
-  let firstObKeys = Object.keys(object1);
-  let secondObKeys = Object.keys(object2);
-
-  numOfKeysTest = firstObKeys.length === secondObKeys.length;
-
-
-  //console.log('judgement of numofkeys test ' + numOfKeysTest);
-  //return numOfKeysTest;
-
-  //After that check, loop through the keys returned by Object.keys for one of the objects (not both). 
-  for (var i of firstObKeys) {
-    if (Array.isArray(object1[i])) {
-      valueOfKeysTest = eqArrays(object1[i], object2[i])
-    } else {
-      valueOfKeysTest = object1[i] !== object2[i];
-    }
-  };
-    
-  // console.log(numOfKeysTest && valueOfKeysTest);
-  return (numOfKeysTest && valueOfKeysTest);
+}
+return true;
 };
 
-const ab = { a: "1", b: "2" };
-const ba = { b: "2", a: "1" };
-//eqObjects(ab, ba); // true
-
-const abc = { a: "1", b: "2", c: "3" };
-//eqObjects(ab, abc); // false
-
-// console.log(objectKeyNumberComparer(ab, ba));
-// console.log(objectKeyNumberComparer(ab, abc));
-//console.log(numberOfKeysInObject(abc));
-
-
-// assertEqual(eqObjects(ab, ba), true);
-// assertEqual(eqObjects(ab, abc), false);
-
-const cd = { c: "1", d: ["2", 3] };
-const dc = { d: ["2", 3], c: "1" };
-assertEqual(eqObjects(cd, dc), true); // => true
-
-const cd2 = { c: "1", d: ["2", 3, 4] };
-assertEqual(eqObjects(cd, cd2), false);
+module.exports = eqObjects;

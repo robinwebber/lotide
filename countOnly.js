@@ -1,10 +1,10 @@
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅ Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`❌ Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
+// const assertEqual = function(actual, expected) {
+//   if (actual === expected) {
+//     console.log(`✅ Assertion Passed: ${actual} === ${expected}`);
+//   } else {
+//     console.log(`❌ Assertion Failed: ${actual} !== ${expected}`);
+//   }
+// };
 
 const countInArray = function (arr, str) {
   let counter = 0;
@@ -37,24 +37,26 @@ const countOnly = function(allItems, itemsToCount) {
   //add an entry to the object - the name that we are looking for
   // see if the key exists, if not create it with a value of undefined
   // if the key exists we need to increase the count
-}
+};
+
+module.exports = countOnly;
 
 // test cases
-const firstNames = [
-  "Karl",
-  "Salima",
-  "Agouhanna",
-  "Fang",
-  "Kavith",
-  "Jason",
-  "Salima",
-  "Fang",
-  "Joe"
-];
+// const firstNames = [
+//   "Karl",
+//   "Salima",
+//   "Agouhanna",
+//   "Fang",
+//   "Kavith",
+//   "Jason",
+//   "Salima",
+//   "Fang",
+//   "Joe"
+// ];
 
 
-const result1 = countOnly(firstNames, { "Jason": true, "Karima": true, "Fang": true });
+// const result1 = countOnly(firstNames, { "Jason": true, "Karima": true, "Fang": true });
 
-assertEqual(result1["Jason"], undefined);
-assertEqual(result1["Karima"], undefined);
-assertEqual(result1["Fang"], 2);
+// assertEqual(result1["Jason"], undefined);
+// assertEqual(result1["Karima"], undefined);
+// assertEqual(result1["Fang"], 2);
