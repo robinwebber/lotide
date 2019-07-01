@@ -22,7 +22,7 @@ const letterInstancesCounter = function (string, character) {
 const removeSpaces = function (str) {
   let noSpaceString = str.split(' ').join('');
   return noSpaceString;
-}
+};
 //console.log(removeSpaces('Is this working?'));
 
 // take a string and count the times each character happens

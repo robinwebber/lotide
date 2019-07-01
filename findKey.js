@@ -14,10 +14,10 @@ const findKey = function(object, callBack) {
   // loop must look through the array of objects and return the string with the key of value matching callBack
   //
   for (let keys in object) {
-    console.log('key ===> ', keys);
-    console.log('objectkeys ===> ', object[keys]);
-    console.log('truthyness of function ===> ', callBack(keys));
-    console.log('stars? ===> ', object[keys]['stars']);
+    // console.log('key ===> ', keys);
+    // console.log('objectkeys ===> ', object[keys]);
+    // console.log('truthyness of function ===> ', callBack(keys));
+    // console.log('stars? ===> ', object[keys]['stars']);
     if (callBack(object[keys])) {
       // console.log('callback test ===>', (callBack(object[keys])))
       result = keys;

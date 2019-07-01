@@ -52,12 +52,7 @@ const eqObjects = function(object1, object2) {
       valueOfKeysTest = object1[i] !== object2[i];
     }
   };
-  
-
-
-  
-
-  
+    
   // console.log(numOfKeysTest && valueOfKeysTest);
   return (numOfKeysTest && valueOfKeysTest);
 };
